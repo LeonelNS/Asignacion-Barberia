@@ -36,7 +36,7 @@
             this.Hora = new System.Windows.Forms.ComboBox();
             this.LblHora = new System.Windows.Forms.Label();
             this.LblFecha = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.fechaselect = new System.Windows.Forms.DateTimePicker();
             this.ListBarb = new System.Windows.Forms.ComboBox();
             this.LblBarbero = new System.Windows.Forms.Label();
             this.CorreoClnt = new System.Windows.Forms.TextBox();
@@ -47,6 +47,7 @@
             this.LabelNomClnt = new System.Windows.Forms.Label();
             this.CrearCita = new System.Windows.Forms.Button();
             this.Namelbl = new System.Windows.Forms.Label();
+            this.agregarBarb = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Informacion.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +55,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(65, 94);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(139, 203);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -63,12 +64,13 @@
             // 
             // Informacion
             // 
+            this.Informacion.Controls.Add(this.agregarBarb);
             this.Informacion.Controls.Add(this.CancelBtt);
             this.Informacion.Controls.Add(this.SaveBtt);
             this.Informacion.Controls.Add(this.Hora);
             this.Informacion.Controls.Add(this.LblHora);
             this.Informacion.Controls.Add(this.LblFecha);
-            this.Informacion.Controls.Add(this.dateTimePicker1);
+            this.Informacion.Controls.Add(this.fechaselect);
             this.Informacion.Controls.Add(this.ListBarb);
             this.Informacion.Controls.Add(this.LblBarbero);
             this.Informacion.Controls.Add(this.CorreoClnt);
@@ -77,6 +79,7 @@
             this.Informacion.Controls.Add(this.LblNumeroTel);
             this.Informacion.Controls.Add(this.NomClnt);
             this.Informacion.Controls.Add(this.LabelNomClnt);
+            this.Informacion.Enabled = false;
             this.Informacion.Location = new System.Drawing.Point(279, 21);
             this.Informacion.Name = "Informacion";
             this.Informacion.Size = new System.Drawing.Size(509, 417);
@@ -93,15 +96,17 @@
             this.CancelBtt.TabIndex = 13;
             this.CancelBtt.Text = "CANCEL";
             this.CancelBtt.UseVisualStyleBackColor = true;
+            this.CancelBtt.Click += new System.EventHandler(this.CancelBtt_Click);
             // 
             // SaveBtt
             // 
-            this.SaveBtt.Location = new System.Drawing.Point(324, 360);
+            this.SaveBtt.BackColor = System.Drawing.Color.White;
+            this.SaveBtt.Location = new System.Drawing.Point(352, 360);
             this.SaveBtt.Name = "SaveBtt";
             this.SaveBtt.Size = new System.Drawing.Size(68, 51);
             this.SaveBtt.TabIndex = 12;
             this.SaveBtt.Text = "SAVE";
-            this.SaveBtt.UseVisualStyleBackColor = true;
+            this.SaveBtt.UseVisualStyleBackColor = false;
             this.SaveBtt.Click += new System.EventHandler(this.SaveBtt_Click);
             // 
             // Hora
@@ -131,12 +136,12 @@
             this.LblFecha.Text = "Fecha";
             this.LblFecha.Click += new System.EventHandler(this.label4_Click);
             // 
-            // dateTimePicker1
+            // fechaselect
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(60, 217);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(220, 23);
-            this.dateTimePicker1.TabIndex = 8;
+            this.fechaselect.Location = new System.Drawing.Point(60, 217);
+            this.fechaselect.Name = "fechaselect";
+            this.fechaselect.Size = new System.Drawing.Size(220, 23);
+            this.fechaselect.TabIndex = 8;
             // 
             // ListBarb
             // 
@@ -220,22 +225,35 @@
             // Namelbl
             // 
             this.Namelbl.AutoSize = true;
-            this.Namelbl.Location = new System.Drawing.Point(12, 21);
+            this.Namelbl.Font = new System.Drawing.Font("Showcard Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.Namelbl.Location = new System.Drawing.Point(12, 28);
             this.Namelbl.Name = "Namelbl";
-            this.Namelbl.Size = new System.Drawing.Size(68, 15);
+            this.Namelbl.Size = new System.Drawing.Size(247, 44);
             this.Namelbl.TabIndex = 3;
             this.Namelbl.Text = "BarberShop";
             this.Namelbl.Click += new System.EventHandler(this.Namelbl_Click);
+            // 
+            // agregarBarb
+            // 
+            this.agregarBarb.Location = new System.Drawing.Point(324, 165);
+            this.agregarBarb.Name = "agregarBarb";
+            this.agregarBarb.Size = new System.Drawing.Size(27, 23);
+            this.agregarBarb.TabIndex = 14;
+            this.agregarBarb.Text = "+";
+            this.agregarBarb.UseVisualStyleBackColor = true;
+            this.agregarBarb.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Azure;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Namelbl);
             this.Controls.Add(this.CrearCita);
             this.Controls.Add(this.Informacion);
             this.Controls.Add(this.pictureBox1);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -259,12 +277,13 @@
         private Label LblBarbero;
         private TextBox CorreoClnt;
         private Label LblFecha;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker fechaselect;
         private ComboBox Hora;
         private Label LblHora;
         private Button CrearCita;
         private Button SaveBtt;
         private Button CancelBtt;
         private Label Namelbl;
+        private Button agregarBarb;
     }
 }
