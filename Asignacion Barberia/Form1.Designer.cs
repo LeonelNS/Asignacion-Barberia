@@ -47,24 +47,24 @@
             this.LabelNomClnt = new System.Windows.Forms.Label();
             this.CrearCita = new System.Windows.Forms.Button();
             this.Namelbl = new System.Windows.Forms.Label();
-            this.agregarBarb = new System.Windows.Forms.Button();
+            this.DGVcitas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Informacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVcitas)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(65, 94);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(139, 203);
+            this.pictureBox1.Size = new System.Drawing.Size(200, 274);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // Informacion
             // 
-            this.Informacion.Controls.Add(this.agregarBarb);
             this.Informacion.Controls.Add(this.CancelBtt);
             this.Informacion.Controls.Add(this.SaveBtt);
             this.Informacion.Controls.Add(this.Hora);
@@ -80,9 +80,9 @@
             this.Informacion.Controls.Add(this.NomClnt);
             this.Informacion.Controls.Add(this.LabelNomClnt);
             this.Informacion.Enabled = false;
-            this.Informacion.Location = new System.Drawing.Point(279, 21);
+            this.Informacion.Location = new System.Drawing.Point(270, 95);
             this.Informacion.Name = "Informacion";
-            this.Informacion.Size = new System.Drawing.Size(509, 417);
+            this.Informacion.Size = new System.Drawing.Size(493, 417);
             this.Informacion.TabIndex = 1;
             this.Informacion.TabStop = false;
             this.Informacion.Text = "Informacion";
@@ -90,7 +90,7 @@
             // 
             // CancelBtt
             // 
-            this.CancelBtt.Location = new System.Drawing.Point(426, 360);
+            this.CancelBtt.Location = new System.Drawing.Point(419, 360);
             this.CancelBtt.Name = "CancelBtt";
             this.CancelBtt.Size = new System.Drawing.Size(68, 51);
             this.CancelBtt.TabIndex = 13;
@@ -101,7 +101,7 @@
             // SaveBtt
             // 
             this.SaveBtt.BackColor = System.Drawing.Color.White;
-            this.SaveBtt.Location = new System.Drawing.Point(352, 360);
+            this.SaveBtt.Location = new System.Drawing.Point(338, 360);
             this.SaveBtt.Name = "SaveBtt";
             this.SaveBtt.Size = new System.Drawing.Size(68, 51);
             this.SaveBtt.TabIndex = 12;
@@ -116,6 +116,7 @@
             this.Hora.Name = "Hora";
             this.Hora.Size = new System.Drawing.Size(251, 23);
             this.Hora.TabIndex = 11;
+            this.Hora.SelectedIndexChanged += new System.EventHandler(this.Hora_SelectedIndexChanged);
             // 
             // LblHora
             // 
@@ -150,6 +151,7 @@
             this.ListBarb.Name = "ListBarb";
             this.ListBarb.Size = new System.Drawing.Size(251, 23);
             this.ListBarb.TabIndex = 7;
+            this.ListBarb.SelectedIndexChanged += new System.EventHandler(this.ListBarb_SelectedIndexChanged);
             // 
             // LblBarbero
             // 
@@ -214,7 +216,7 @@
             // 
             // CrearCita
             // 
-            this.CrearCita.Location = new System.Drawing.Point(30, 415);
+            this.CrearCita.Location = new System.Drawing.Point(1082, 560);
             this.CrearCita.Name = "CrearCita";
             this.CrearCita.Size = new System.Drawing.Size(185, 23);
             this.CrearCita.TabIndex = 2;
@@ -226,29 +228,31 @@
             // 
             this.Namelbl.AutoSize = true;
             this.Namelbl.Font = new System.Drawing.Font("Showcard Gothic", 26.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.Namelbl.Location = new System.Drawing.Point(12, 28);
+            this.Namelbl.Location = new System.Drawing.Point(504, 9);
             this.Namelbl.Name = "Namelbl";
             this.Namelbl.Size = new System.Drawing.Size(247, 44);
             this.Namelbl.TabIndex = 3;
             this.Namelbl.Text = "BarberShop";
             this.Namelbl.Click += new System.EventHandler(this.Namelbl_Click);
             // 
-            // agregarBarb
+            // DGVcitas
             // 
-            this.agregarBarb.Location = new System.Drawing.Point(324, 165);
-            this.agregarBarb.Name = "agregarBarb";
-            this.agregarBarb.Size = new System.Drawing.Size(27, 23);
-            this.agregarBarb.TabIndex = 14;
-            this.agregarBarb.Text = "+";
-            this.agregarBarb.UseVisualStyleBackColor = true;
-            this.agregarBarb.Click += new System.EventHandler(this.button1_Click_1);
+            this.DGVcitas.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DGVcitas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVcitas.Location = new System.Drawing.Point(770, 95);
+            this.DGVcitas.Name = "DGVcitas";
+            this.DGVcitas.RowTemplate.Height = 25;
+            this.DGVcitas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DGVcitas.Size = new System.Drawing.Size(521, 417);
+            this.DGVcitas.TabIndex = 4;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Azure;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1303, 595);
+            this.Controls.Add(this.DGVcitas);
             this.Controls.Add(this.Namelbl);
             this.Controls.Add(this.CrearCita);
             this.Controls.Add(this.Informacion);
@@ -259,6 +263,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Informacion.ResumeLayout(false);
             this.Informacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVcitas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -284,6 +289,6 @@
         private Button SaveBtt;
         private Button CancelBtt;
         private Label Namelbl;
-        private Button agregarBarb;
+        private DataGridView DGVcitas;
     }
 }

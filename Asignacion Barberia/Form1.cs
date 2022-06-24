@@ -4,6 +4,7 @@ namespace Asignacion_Barberia
     {
         
         List<string> barberos=new List<string>();
+        List<Citas> citas=new List<Citas>();
 
         public Form1()
         {
@@ -85,7 +86,7 @@ namespace Asignacion_Barberia
 
         private void SaveBtt_Click(object sender, EventArgs e)
         {
-
+            SaveCita();
         }
 
         private void Namelbl_Click(object sender, EventArgs e)
@@ -95,6 +96,44 @@ namespace Asignacion_Barberia
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            
+        }
+
+        private void SaveCita()
+        {
+            var random = new Random();
+            var cita = new Citas()
+            {
+                id = Guid.NewGuid(),
+                code = random.Next(10000,99999).ToString(),
+                nombreCliente = NomClnt.Text,
+                telCliente = NumClnt.Text,
+                emailCliente = CorreoClnt.Text,
+                nombreBarbero = ListBarb.SelectedValue.ToString(),
+                fechafijada=fechaselect.Value,
+                horafijada = Hora.SelectedValue.ToString(),
+                fechaCreada = DateTime.Now,
+            };
+
+            var citaexistente = citas.Count(c => c.fechafijada.ToString("dd/mm/yyyy") == fechaselect.Value.ToString("dd/mm/yyyy") && c.horafijada == Hora.SelectedValue.ToString());
+            if (citaexistente > 0)
+            {
+                MessageBox.Show("Este horario ya se encuentra lleno");
+            }
+
+            citas.Add(cita);
+
+            GetCitas();
+
+            Informacion.Enabled = false;
+            Borrarcontrol();
+
+        }
+
+        private void GetCitas()
+        {
+            DGVcitas.DataSource = null;
+            DGVcitas.DataSource = citas;
 
         }
 
@@ -107,5 +146,29 @@ namespace Asignacion_Barberia
         {
             
         }
+
+        private void ListBarb_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Hora_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+    public class Citas
+    {
+        public Guid id { get; set; }
+        public string code { get; set; }
+        public string nombreCliente { get; set; }
+        public string telCliente { get; set; }
+        public string emailCliente { get; set; }
+        public string nombreBarbero { get; set; }
+        public string horafijada { get; set; }
+        public DateTime fechafijada { get; set; }
+        public DateTime fechaCreada { get; set; }    
+
+
     }
 }
